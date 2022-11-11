@@ -1,21 +1,51 @@
+<head>
+<title>B4m600-ColorBar</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="author" content="B4m600-南竺_QQ2656980584" />
+<link rel="shortcut icon" href="./favicon.ico">
+</head>
+
 <body bgcolor=#cccccc><center><br><br><br><br><br>
 
 <table border=2 margin=1000px>
-<tr><div class="mydiv">
+
+<tr><div >
 <td><input type="text" id=msg1 /><button onclick=func1()>convert</button></td>
 <td id="content1">██</td><br>
 </tr></div>
-<tr><div class="mydiv">
+<tr><div >
 <td><input type="text" id=msg2 /><button onclick=func2()>convert</button>
 <td id="content2">██</td><br>
 </tr></div>
-<tr><div class="mydiv">
+<tr><div >
 <td><input type="text" id=msg3 /><button onclick=func3()>convert</button>
 <td id="content3">██</td><br>
 </tr></div>
+
 </table></div>
 
+<tr><div style="border:5px groove #aaa;width:25%;position:absolute;right:10px;top:210px">
+<td><input type="text" id=ord style="width:40%;float:left;" /><button style="width:45%" onclick=func_ord()>"{st0}".CharCodeAt(0)</button></td>
+<span id="content_ord">██</span><br>
+</tr></div>
+
+<tr><div style="border:5px groove #aaa;width:25%;position:absolute;left:10px;top:210px">
+<td><input type="text" id=chr style="width:40%;float:left;" /><button style="width:45%" onclick=func_chr()>String.fromCharCode({n})</button></td>
+<span id="content_chr">██</span><br>
+</tr></div>
+
+
+<hr size=3em color=#333 />
+<div style="border:#999 groove 5px;width:20%;float:left;height:50000px;background-color:#aaa;">
+<img style="width:100%;float:left" src="./HTML符号表-1.jpg" /></div>
+<div style="border:#999 groove 5px;width:20%;float:right;height:50000px;background-color:#aaa;">
+<img style="width:100%;float:right;" src="./HTML符号表-2.jpg" /></div>
+
+<div id="mydiv" style="border:5px groove #333;width:55%;height:50000px;background:linear-gradient(90deg,cornflowerblue,tomato);">
+
+</div>
 <script>
+'use strick'
 function func1(){
 document.getElementById("content1").innerHTML="█"+
 document.getElementById("msg1").value+"█"}
@@ -27,5 +57,18 @@ document.getElementById("msg2").value+"█"}
 function func3(){
 document.getElementById("content3").innerHTML="█"+
 document.getElementById("msg3").value+"█"}
+
+var num=32;
+mydiv=document.getElementById("mydiv");
+setInterval(function(){mydiv.innerHTML+=`<p style="border:5px groove #666;width:100px;float:left;margin:4px;">&&nbsp;#${num};&nbsp;█&#${num}█</p>`;num+=1;},0)
+
+function func_chr(){
+var chr_=document.getElementById("chr").value;
+document.getElementById("content_chr").innerHTML="█"+String.fromCharCode(parseInt(chr_))+"█"
+}
+function func_ord(){
+var ord_=document.getElementById("ord").value;
+document.getElementById("content_ord").innerHTML="█"+ord_.charCodeAt()+"█"
+}
 
 </script></center></body>
